@@ -14,7 +14,7 @@ Scenario: Ingresar una letra correcta
 	When ingreso en "campo" con "m"
 	Then veo "Encontrada"
 	
-Scenario: Mostrar la palabra escondida al ingresar todas las letras correctas
-	Given voy a la home
-	When en input "escondido" es igual a "true"
-	Then veo "murcielago"
+#Scenario: Mostrar la palabra escondida al ingresar todas las letras correctas
+#	Given voy a la home
+#	When en input "escondido" es igual a "true"
+#	Then veo "murcielago"

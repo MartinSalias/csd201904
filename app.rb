@@ -1,7 +1,7 @@
 require 'sinatra'
 require './lib/word.rb'
 
-get '/' do
+get '/' do  
   erb :form
 end
 
