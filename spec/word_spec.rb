@@ -24,10 +24,30 @@ describe "Word" do
       expect(word.letter_is_present('M')).to eq true
     end
 
-    it "Should add the letter passed as a parameter to the @correct_letter array" do
+    it "Should add the letter passed as a parameter to the @correct_letter array if it's present in the word" do
       word = Word.new
       word.letter_is_present('m')
       expect(word.correct_letters).to eq ['m']
+    end
+
+    it "Should not add duplicate letters to the @correct_letter array" do
+      word = Word.new
+      word.letter_is_present('m')
+      word.letter_is_present('m')
+      expect(word.correct_letters).to eq ['m']
+    end
+
+    it "Should add the letter passed as a parameter to the @incorrect_letter array if it's not present in the word" do
+      word = Word.new
+      word.letter_is_present('x')
+      expect(word.incorrect_letters).to eq ['x']
+    end
+
+    it "Should not add duplicate letters to the @incorrect_letter array" do
+      word = Word.new
+      word.letter_is_present('x')
+      word.letter_is_present('x')
+      expect(word.incorrect_letters).to eq ['x']
     end
   end
 
