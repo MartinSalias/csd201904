@@ -51,4 +51,20 @@ describe "Word" do
     end
   end
 
+  describe "When word_was_found is called" do
+    it "Should return true if the word was found" do
+      word = Word.new
+      word.letter_is_present('m');
+      word.letter_is_present('u');
+      word.letter_is_present('r');
+      word.letter_is_present('c');
+      word.letter_is_present('i');
+      word.letter_is_present('e');
+      word.letter_is_present('l');
+      word.letter_is_present('a');
+      word.letter_is_present('g');
+      word.letter_is_present('o');
+      expect(word.word_was_found).to eq true
+    end
+  end
 end

@@ -1,14 +1,15 @@
 require 'sinatra'
 require './lib/word.rb'
 
-get '/' do  
+get '/' do
+  @@word = Word.new
   erb :form
 end
 
 post '/buscar' do
-  word = Word.new
   @letter = params[:campo]
-  @result = word.letter_is_present(@letter) ? "Encontrada" :  "No encontrada"
+  @result = @@word.letter_is_present(@letter) ? "Encontrada" :  "No encontrada"
+  @word = @@word.word_was_found ? @@word.get_word : ""
 
   erb :form
 end

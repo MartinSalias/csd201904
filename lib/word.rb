@@ -1,6 +1,7 @@
 class Word
   def initialize
     @word = "murcielago"
+    @word_list = @word.split ""
     @correct_letters = []
     @incorrect_letters = []
   end
@@ -35,4 +36,7 @@ class Word
     end
   end
 
+  def word_was_found
+    return (@word_list - @correct_letters).empty?
   end
+end
