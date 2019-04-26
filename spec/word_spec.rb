@@ -49,6 +49,13 @@ describe "Word" do
       word.letter_is_present('x')
       expect(word.incorrect_letters).to eq ['x']
     end
+
+    it "Should exist only 1 element in the @incorrect_letter array" do
+      word = Word.new
+      word.letter_is_present('m')
+      word.letter_is_present('f')
+      expect(word.incorrect_letters.length).to eq 1
+    end
   end
 
   describe "When word_was_found is called" do
