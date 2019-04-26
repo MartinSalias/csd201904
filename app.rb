@@ -13,12 +13,13 @@ post '/buscar' do
     
   @cont_errors = @@word.incorrect_letters.length
   @errors = ""
-  @endgame =  ""
+  @endgame = ""
 
   if @cont_errors < 7
     @word = @@word.word_was_found ? @@word.get_word : ""
 
     if @cont_errors > 0
+      @bad_letters = @@word.incorrect_letters.reverse.join(" ")
       @errors = "¡Llevas " + @cont_errors.to_s + ((@cont_errors  == 1) ? " error" : " errores") + "!"
     end
 

@@ -63,3 +63,11 @@ Feature: Juego de AHORCADO
     And ingreso en "campo" con "g"
     And ingreso en "campo" con "o"
     Then veo "¡Ganaste, felicitaciones!"
+    
+  Scenario: Mostrar letra incorrecta
+    Given voy a la home
+    And la palabra es "murcielago"
+    When ingreso en "campo" con "m"
+    And ingreso en "campo" con "f"
+    And ingreso en "campo" con "x"
+    Then veo "x f"

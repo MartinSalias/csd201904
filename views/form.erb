@@ -3,6 +3,9 @@
 <form action="/buscar" method="post">
 
 <p name="errores"><%= @errors %></p>
+<br/>
+<p name="incorrectas"><%= @bad_letters %></p>
+<br />
 
 Ingrese una Letra<input type="text" name="campo" maxlength=1 minlength=1 required />
 <input type="submit" value="Enviar" />
