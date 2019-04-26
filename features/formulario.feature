@@ -71,3 +71,16 @@ Feature: Juego de AHORCADO
     And ingreso en "campo" con "f"
     And ingreso en "campo" con "x"
     Then veo "x f"
+    
+  Scenario: Mostrar letra encontrada
+    Given voy a la home
+    And la palabra es "murcielago"
+    When ingreso en "campo" con "u"
+    Then veo "_ u _ _ _ _ _ _ _ _"
+    
+  Scenario: No mostrar letra encontrada
+    Given voy a la home
+    And la palabra es "murcielago"
+    When ingreso en "campo" con "x"
+    Then veo "_ _ _ _ _ _ _ _ _ _"
+

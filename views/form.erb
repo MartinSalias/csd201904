@@ -1,14 +1,14 @@
 <h1>JUEGO DE AHORCADO</h1>
 
-<form action="/buscar" method="post">
-
 <p name="errores"><%= @errors %></p>
 <p name="incorrectas">Letras incorrectas: <%= @bad_letters %></p>
 
-Ingrese una Letra<input type="text" name="campo" size="1" pattern="[A-Za-z]" maxlength=1 minlength=1 required />
-<input type="submit" value="Enviar" />
-
+<form action="/buscar" method="post">
+  Ingrese una Letra<input type="text" name="campo" size="1" pattern="[A-Za-z]" maxlength=1 minlength=1 required />
+  <input type="submit" value="Enviar" />
 </form>
+
+<p name="encontradas" style="font-size:50px;"><%= @found %></p>
 
 <p name="resultado"><%= @result %></p>
 <p name="palabra"><%= @word %></p>

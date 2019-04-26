@@ -4,6 +4,7 @@ require './lib/word.rb'
 get '/' do
   @endgame = ""
   @@word = Word.new
+  @found = @@word.word_letters_found.join(" ")
   erb :form
 end
 
@@ -12,10 +13,11 @@ post '/buscar' do
   @result = @@word.letter_is_present(@letter) ? "Encontrada" :  "No encontrada"
     
   @cont_errors = @@word.incorrect_letters.length
+  @found = @@word.word_letters_found.join(" ")
   @errors = ""
   @endgame = ""
 
-  if @cont_errors < 7
+  if @cont_errors < 7  
     @word = @@word.word_was_found ? @@word.get_word : ""
 
     if @cont_errors > 0

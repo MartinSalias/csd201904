@@ -6,6 +6,7 @@ class Word
     @word_list = @word.split ""
     @correct_letters = []
     @incorrect_letters = []
+    @word_letters_found = []
     set_word
   end
 
@@ -16,7 +17,9 @@ class Word
       @word =@lift_words[aleat]
     else
       @word = word
-    end 
+    end
+    
+    @word_letters_found = @word.gsub(/\S/, '_').split("")
   end
   
   def get_word
@@ -30,6 +33,14 @@ class Word
   def incorrect_letters
     return @incorrect_letters
   end
+  
+  def refresh_word_letters_found letter
+    @word.split("").each_with_index do |character, position|
+      if character == letter
+        @word_letters_found[position] = letter
+      end
+    end
+  end
 
   def letter_is_present letter
     letter = letter.downcase
@@ -37,6 +48,7 @@ class Word
     if (@word.include? letter)
       if (!@correct_letters.include? letter)
         @correct_letters.push letter
+        refresh_word_letters_found letter
       end
 
       return true
@@ -47,6 +59,10 @@ class Word
 
       return false
     end
+  end
+  
+  def word_letters_found
+    return @word_letters_found
   end
 
   def word_was_found
