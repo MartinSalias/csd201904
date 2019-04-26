@@ -11,7 +11,7 @@ end
 post '/buscar' do
   @letter = params[:campo]
   @result = @@word.letter_is_present(@letter) ? "Encontrada" :  "No encontrada"
-    
+
   @cont_errors = @@word.incorrect_letters.length
   @found = @@word.word_letters_found.join(" ")
   @errors = ""

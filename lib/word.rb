@@ -1,27 +1,23 @@
 class Word
-  def initialize
-    
-    @lift_words= ["murcielago","conducta","gente","juvenil","tronco"];
-    @word =""    
-    @word_list = @word.split ""
+  def initialize word = ""
     @correct_letters = []
     @incorrect_letters = []
     @word_letters_found = []
-    set_word
+    @words_pool = ["murcielago", "conducta", "gente", "juvenil", "tronco"]
+    set_word(word)
   end
 
-  def set_word word=""
-    if word.empty? 
-      count = @lift_words.length
-      aleat = rand(count)
-      @word =@lift_words[aleat]
+  def set_word word
+    if word.empty?
+      @word = @words_pool.sample
     else
       @word = word
     end
     
+    @word_list = @word.split("")
     @word_letters_found = @word.gsub(/\S/, '_').split("")
   end
-  
+
   def get_word
     return @word
   end
