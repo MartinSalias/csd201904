@@ -1,7 +1,7 @@
 <h1>JUEGO DE AHORCADO</h1>
 
-<p name="errores"><%= @errors %></p>
-<p name="incorrectas">Letras incorrectas: <%= @bad_letters %></p>
+<p name="errores"><%= @@game.error_message %></p>
+<p name="incorrectas">Letras incorrectas: <%= @@game.wrong_letters %></p>
 
 <form action="/" method="post">
   Ingrese una Letra<input type="text" name="campo" size="1" pattern="[A-Za-z]" maxlength=1 minlength=1 required />
@@ -11,8 +11,12 @@
 <!-- For the next sprint -->
 <!-- <p name="encontradas" style="font-size:50px;"><%= @found %></p> -->
 
-<p name="resultado"><%= @result %></p>
-<p name="palabra"><%= @word %></p>
-<p name="fin"><%= @endgame %></p>
+<p name="resultado"><%= @@game.letter_result %></p>
 
-<a href ="/">Comenzar nuevamente</a>
+<% if @@game.status != 'in progress' %>
+  <p name="palabra">La palabra correcta era: <%= @@game.word %></p>
+<% end %>
+
+<p name="fin"><%= @@game.result %></p>
+
+<a href="/">Comenzar nuevamente</a>

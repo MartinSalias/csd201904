@@ -18,6 +18,6 @@ When(/^en input "(.*?)" es igual a "(.*?)"$/) do |field, value|
 end
 
 Given(/^la palabra es "(.*?)"$/) do |text|
-  @@word.set_word text
+  @@game = Game.new(text)
 end
 

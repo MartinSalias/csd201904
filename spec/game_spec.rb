@@ -84,7 +84,15 @@ describe "Game" do
     game.round('x')
     game.round('c')
     game.round('p')
-    expect(game.wrong_letters).to eq 'cx'
+    expect(game.wrong_letters).to eq 'c x'
  end
+ end
+
+ describe "When error_message() is called" do
+  it "Should return the error message" do
+    game = Game.new('papas')
+    game.round('n')
+    expect(game.error_message).to eq "¡Llevas #{game.error_count.to_s} error(es)!"
+  end
  end
 end

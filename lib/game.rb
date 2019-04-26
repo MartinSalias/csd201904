@@ -1,4 +1,4 @@
-require 'word.rb'
+require './lib/word.rb'
 
 class Game
   def initialize word = ""
@@ -6,7 +6,6 @@ class Game
     @word.set_word(word)
     @max_errors = 7
     @game_over = false
-    round("")
   end
 
   def error_count
@@ -26,7 +25,7 @@ class Game
   end
 
   def wrong_letters
-    return @word.incorrect_letters.reverse.join('')
+    return @word.incorrect_letters.reverse.join(' ')
   end
 
   def error_message
@@ -34,22 +33,19 @@ class Game
   end
 
   def round letter
-    if (!letter.empty?)
-      @letter_result = @word.letter_is_present(letter);
-      status = status()
+    @letter_result = @word.letter_is_present(letter);
+    status = status()
 
-      if (status == 'lost')
-        @result = 'Has perdido'
-        #@TODO remove the HTML element that displays "Encontrada" / "No encontrada"
-      elsif (status == 'win')
-        @result = '¡Ganaste, felicitaciones!'
-      else
-        @result = 'Jugando'
-        @error_message = "¡Llevas #{error_count.to_s} error(es)!"
-
-        #@TODO update the template to deal with the 'Jugando' situation
-      end
+    if (status == 'lost')
+      @result = '¡Has perdido!'
+      #@TODO remove the HTML element that displays "Encontrada" / "No encontrada"
+    elsif (status == 'win')
+      @result = '¡Ganaste, felicitaciones!'
     else
+      @result = 'Jugando'
+      @error_message = "¡Llevas #{error_count.to_s} error!"
+
+      #@TODO update the template to deal with the 'Jugando' situation
     end
   end
 
