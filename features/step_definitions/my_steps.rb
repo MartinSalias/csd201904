@@ -17,3 +17,7 @@ When(/^en input "(.*?)" es igual a "(.*?)"$/) do |field, value|
   last_response.body.should =~ /#{text}/m
 end
 
+Given(/^la palabra es "(.*?)"$/) do |text|
+  @@word.set_word text
+end
+

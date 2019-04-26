@@ -1,11 +1,24 @@
 class Word
   def initialize
-    @word = "murcielago"
+    
+    @lift_words= ["murcielago","conducta","gente","juvenil","tronco"];
+    @word =""    
     @word_list = @word.split ""
     @correct_letters = []
     @incorrect_letters = []
+    set_word
   end
 
+  def set_word word=""
+    if word.empty? 
+      count = @lift_words.length
+      aleat = rand(count)
+      @word =@lift_words[aleat]
+    else
+      @word = word
+    end 
+  end
+  
   def get_word
     return @word
   end

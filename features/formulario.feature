@@ -5,16 +5,19 @@ Feature: Juego de AHORCADO
 
   Scenario: Ingresar una letra incorecta
     Given voy a la home
+    And la palabra es "murcielago"
     When ingreso en "campo" con "Z"
     Then veo "No encontrada"
 
   Scenario: Ingresar una letra correcta
     Given voy a la home
+    And la palabra es "murcielago"
     When ingreso en "campo" con "m"
     Then veo "Encontrada"
 
   Scenario: Mostrar la palabra escondida al ingresar todas las letras correctas
     Given voy a la home
+    And la palabra es "murcielago"
     When ingreso en "campo" con "m"
     And ingreso en "campo" con "u"
     And ingreso en "campo" con "r"
@@ -29,12 +32,14 @@ Feature: Juego de AHORCADO
 
   Scenario: Mostrar contador de error
     Given voy a la home
+    And la palabra es "murcielago"
     When ingreso en "campo" con "m"
     And ingreso en "campo" con "f"
     Then veo "¡Llevas 1 error!"
 
   Scenario: Mostrar fin del juego al jugador cuando pierde
     Given voy a la home
+    And la palabra es "murcielago"
     When ingreso en "campo" con "q"
     And ingreso en "campo" con "w"
     And ingreso en "campo" con "t"
@@ -46,6 +51,7 @@ Feature: Juego de AHORCADO
 
   Scenario: Mostrar fin del juego al jugador cuando gana
     Given voy a la home
+    And la palabra es "murcielago"
     When ingreso en "campo" con "m"
     And ingreso en "campo" con "u"
     And ingreso en "campo" con "r"
