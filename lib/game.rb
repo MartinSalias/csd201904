@@ -17,7 +17,12 @@ class Game
   end
 
   def letter_result
-    return @letter_result? 'Encontrada' : 'No encontrada'
+    # It's the first round
+    if defined? @letter_result
+      return @letter_result? 'Encontrada' : 'No encontrada'
+    else
+      return ''
+    end
   end
 
   def result
@@ -26,6 +31,10 @@ class Game
 
   def wrong_letters
     return @word.incorrect_letters.reverse.join(' ')
+  end
+
+  def word_letters_found
+    return @word.word_letters_found.join(' ')
   end
 
   def error_message

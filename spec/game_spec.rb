@@ -50,7 +50,7 @@ describe "Game" do
   end
 
  describe "When result() is called" do
-  it "Should return 'Has perdido' if the game is over and the user lost" do
+  it "Should return '¡Has perdido!' if the game is over and the user lost" do
     game = Game.new('papas')
       game.round('n')
       game.round('x')
@@ -59,7 +59,7 @@ describe "Game" do
       game.round('t')
       game.round('r')
       game.round('w')
-      expect(game.result).to eq 'Has perdido'
+      expect(game.result).to eq '¡Has perdido!'
   end
 
   it "Should return '¡Ganaste, felicitaciones!' if the game is over and the user won" do
@@ -92,7 +92,15 @@ describe "Game" do
   it "Should return the error message" do
     game = Game.new('papas')
     game.round('n')
-    expect(game.error_message).to eq "¡Llevas #{game.error_count.to_s} error(es)!"
+    expect(game.error_message).to eq "¡Llevas #{game.error_count.to_s} error!"
   end
+ end
+
+ describe "When word_letters_found is called" do
+   it "Should return the chosen word displaying the letters that were found" do
+     game = Game.new('papas')
+     game.round('a')
+     expect(game.word_letters_found).to eq "_ a _ a _"
+   end
  end
 end
