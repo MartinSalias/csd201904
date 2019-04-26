@@ -38,7 +38,7 @@ class Game
 
     if (status == 'lost')
       @result = '¡Has perdido!'
-      #@TODO remove the HTML element that displays "Encontrada" / "No encontrada"
+      @error_message = "¡Llevas #{error_count.to_s} error!"
     elsif (status == 'win')
       @result = '¡Ganaste, felicitaciones!'
     else
