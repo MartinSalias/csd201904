@@ -1,16 +1,20 @@
 <h1>JUEGO DE AHORCADO</h1>
 
+
 <p name="errores"><%= @@game.error_message %></p>
+
 <p name="incorrectas">Letras incorrectas: <%= @@game.wrong_letters %></p>
 
-<form action="/" method="post">
-  Ingrese una Letra<input type="text" name="campo" size="1" pattern="[A-Za-z]" maxlength=1 minlength=1 required />
-  <input type="submit" value="Enviar" />
-</form>
+<% if @@game.status == 'in progress' %>
+  <form action="/" method="post">
+    Ingrese una Letra<input type="text" name="campo" size="1" pattern="[A-Za-z]" maxlength=1 minlength=1 required />
+    <input type="submit" value="Enviar" />
+  </form>
+
+  <p name="resultado"><%= @@game.letter_result %></p>
+<% end %>
 
 <p name="encontradas" style="font-size:50px;"><%= @@game.word_letters_found %></p>
-
-<p name="resultado"><%= @@game.letter_result %></p>
 
 <% if @@game.status != 'in progress' %>
   <p name="palabra">La palabra correcta era: <%= @@game.word %></p>
