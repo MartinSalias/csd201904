@@ -8,7 +8,7 @@ get '/' do
   erb :form
 end
 
-post '/buscar' do
+post '/' do
   @letter = params[:campo]
   @result = @@word.letter_is_present(@letter) ? "Encontrada" :  "No encontrada"
 

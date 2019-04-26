@@ -3,7 +3,7 @@
 <p name="errores"><%= @errors %></p>
 <p name="incorrectas">Letras incorrectas: <%= @bad_letters %></p>
 
-<form action="/buscar" method="post">
+<form action="/" method="post">
   Ingrese una Letra<input type="text" name="campo" size="1" pattern="[A-Za-z]" maxlength=1 minlength=1 required />
   <input type="submit" value="Enviar" />
 </form>
